@@ -91,13 +91,16 @@ componentDidUpdate() {
   return (
 
     <Aux>
-      <AuthContext.Provider>
+      <AuthContext.Provider 
+      value={{
+      authenticated: this.state.authenticated,
+      login: this.loginHandler
+      }}>
       <Cockpit
       title={this.props.appTitle}
       showPersons={this.state.showPersons}
       persons={this.state.persons}
       clicked={this.togglePersonsHandler} 
-      login={this.loginHandler}
       />
     {persons}
     </AuthContext.Provider>
